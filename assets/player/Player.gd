@@ -3,6 +3,7 @@ extends KinematicBody
 export var speed_walk = 1.34
 export var speed_run = 2.23
 export var speed_run_min = 0.5
+export var gravity = 9.78
 
 var running = false
 var velocity = Vector3.ZERO
