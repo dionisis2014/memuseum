@@ -15,6 +15,7 @@ script = ExtResource( 2 )
 
 [node name="Floor" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0 )
+collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
 shape = SubResource( 1 )
@@ -31,4 +32,4 @@ transform = Transform( 0.922464, 0.1828, -0.340065, 0, 0.880808, 0.473473, 0.386
 shadow_enabled = true
 
 [node name="Exibit" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.931018, 0, -0.364974, 0, 1, 0, 0.364974, 0, 0.931018, -1.6448, 0, 2.6616 )
+transform = Transform( -0.736971, 0, 0.675925, 0, 1, 0, -0.675925, 0, -0.736971, -3.14407, 0, 4.08595 )

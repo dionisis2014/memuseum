@@ -1,5 +1,6 @@
 extends Spatial
 
+
 export var wave_speed = 0.25
 export var wave_distance = 0.25
 export var wave_offset = 1.75
@@ -10,3 +11,4 @@ func _process(delta):
 	var wave = sin(wave_angle)
 	wave = wave * wave
 	$ExibitBody.translation.y = wave_offset + wave * wave_distance
+
