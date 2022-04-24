@@ -21,8 +21,8 @@ _global_script_class_icons={
 [application]
 
 config/name="memuseum"
-run/main_scene="res://assets/testing.tscn"
-config/icon="res://assets/icon.png"
+run/main_scene="res://scenes/testing.tscn"
+config/icon="res://assets/textures/icon.png"
 
 [gdnative]
 
@@ -135,3 +135,8 @@ game_click={
 [physics]
 
 common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/directional_shadow/size=8192
+quality/shadow_atlas/size=8192
