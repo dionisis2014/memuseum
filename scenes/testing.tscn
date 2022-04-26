@@ -25,6 +25,8 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39074, 0 )
+state_cam_enabled = false
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.914635, 0.191416, -0.356093, 0.0617794, 0.804286, 0.591022, 0.399531, -0.562569, 0.723803, 0, 7.09923, 0 )
