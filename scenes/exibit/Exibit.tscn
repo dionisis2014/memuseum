@@ -35,10 +35,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 shape = SubResource( 3 )
 
 [node name="SpectatorLocation" type="Position3D" parent="Spectator"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
-
-[node name="SpectatorLook" type="Position3D" parent="Spectator"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+transform = Transform( 1, 0, 0, 0, 0.996542, -0.0830865, 0, 0.0830865, 0.996542, 0, 0, 2 )
 
 [node name="LightR" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72, 0.28, 0.52 )
@@ -65,3 +62,5 @@ spot_range = 4.0
 shadow_enabled = true
 omni_range = 2.0
 omni_attenuation = 5.0
+
+[connection signal="body_entered" from="Spectator" to="." method="_on_Spectator_body_entered"]

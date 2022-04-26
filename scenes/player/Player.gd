@@ -14,6 +14,8 @@ export var state_cam_enabled = true
 
 export var velocity = Vector3.ZERO
 
+export var spectate_tween_time = 0.5
+
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if state_cam_enabled:
@@ -57,3 +59,21 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	
 	velocity = move_and_slide(velocity, Vector3.UP)
+
+func _exibit_spectate(spectator):
+	state_enabled = false
+	state_cam_enabled = false
+	
+	var spec = spectator.get_node("SpectatorLocation")
+	var loc = spec.global_transform.origin
+	var rot = spec.global_transform.basis.get_euler()
+	
+	var tween = $Tween
+	tween.interpolate_property(self, "translation", self.translation, loc, spectate_tween_time, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.interpolate_property($Pivot, "rotation", $Pivot.rotation, Vector3(0.0, rot.y, 0.0), spectate_tween_time, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.interpolate_property($Pivot/Camera, "rotation", $Pivot/Camera.rotation, Vector3(rot.x, 0.0, 0.0), spectate_tween_time, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.start()
+
+func _on_Tween_tween_all_completed():
+	state_enabled = true
+	state_cam_enabled = true

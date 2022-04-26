@@ -12,7 +12,7 @@ top_radius = 0.4
 bottom_radius = 0.4
 height = 1.8
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="KinematicBody" groups=["player"]]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource( 1 )
@@ -32,3 +32,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0 )
 [node name="Camera" type="Camera" parent="Pivot"]
 environment = ExtResource( 2 )
 current = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
