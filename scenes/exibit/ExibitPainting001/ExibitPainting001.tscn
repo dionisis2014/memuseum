@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/materials/ExibitPainting001_PaintingFrame_Material.tres" type="Material" id=2]
+[ext_resource path="res://assets/models/ExibitPainting001.glb" type="PackedScene" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.05, 1, 1.5 )
+
+[node name="ExibitPainting001" instance=ExtResource( 3 )]
+
+[node name="Frame" parent="." index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Area" type="KinematicBody" parent="." index="2"]
+collision_mask = 2
+
+[node name="Collider" type="CollisionShape" parent="Area" index="0"]
+shape = SubResource( 1 )

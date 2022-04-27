@@ -6,6 +6,7 @@ func _ready():
 	$Exibit2.connect("_spectated", $Player, "_exibit_spectate")
 	$Exibit3.connect("_spectated", $Player, "_exibit_spectate")
 	$Exibit4.connect("_spectated", $Player, "_exibit_spectate")
+	randomize()
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):

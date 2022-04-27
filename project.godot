@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="memuseum"
-run/main_scene="res://scenes/testing.tscn"
+run/main_scene="res://scenes/gui/main_menu/MainMenu.tscn"
 config/icon="res://assets/textures/icon.png"
 
 [gdnative]

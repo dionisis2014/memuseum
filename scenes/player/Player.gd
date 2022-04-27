@@ -25,7 +25,7 @@ func _unhandled_input(event):
 			$Pivot/Camera.set_rotation(Vector3(pitch, 0.0, 0.0))
 
 func get_input():
-	var direction: Vector3
+	var direction = Vector3.ZERO
 	var view = $Pivot/Camera.global_transform.basis
 	
 	if Input.is_action_pressed("player_move_forward"):
@@ -64,7 +64,7 @@ func _exibit_spectate(spectator):
 	state_enabled = false
 	state_cam_enabled = false
 	
-	var spec = spectator.get_node("SpectatorLocation")
+	var spec = spectator.get_node("Location")
 	var loc = spec.global_transform.origin
 	var rot = spec.global_transform.basis.get_euler()
 	

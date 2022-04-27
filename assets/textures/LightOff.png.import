@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Base.png-593f27014133906a1c0a577f8df64b2e.s3tc.stex"
-path.etc2="res://.import/Base.png-593f27014133906a1c0a577f8df64b2e.etc2.stex"
+path.s3tc="res://.import/LightOff.png-5457e4cb3683e8151c7b2f471f222c0f.s3tc.stex"
+path.etc2="res://.import/LightOff.png-5457e4cb3683e8151c7b2f471f222c0f.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/Base.png"
-dest_files=[ "res://.import/Base.png-593f27014133906a1c0a577f8df64b2e.s3tc.stex", "res://.import/Base.png-593f27014133906a1c0a577f8df64b2e.etc2.stex" ]
+source_file="res://assets/textures/LightOff.png"
+dest_files=[ "res://.import/LightOff.png-5457e4cb3683e8151c7b2f471f222c0f.s3tc.stex", "res://.import/LightOff.png-5457e4cb3683e8151c7b2f471f222c0f.etc2.stex" ]
 
 [params]
 
