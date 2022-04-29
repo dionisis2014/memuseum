@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/gui/exibit_info/ExibitInfoTitleTheme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/gui/exibit_info/ExibitInfoInfoTheme.tres" type="Theme" id=2]
+[ext_resource path="res://scenes/gui/exibit_info/ExibitInfo.gd" type="Script" id=3]
+[ext_resource path="res://assets/textures/cart.png" type="Texture" id=4]
+
+[node name="ExibitInfo" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -0.00115967
+script = ExtResource( 3 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_bottom = 1.0
+margin_right = 400.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.25098 )
+
+[node name="Container" type="VBoxContainer" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="Title" type="Label" parent="Background/Container"]
+margin_right = 380.0
+margin_bottom = 40.0
+size_flags_vertical = 0
+theme = ExtResource( 1 )
+text = "Title"
+autowrap = true
+
+[node name="Info" type="Label" parent="Background/Container"]
+margin_top = 44.0
+margin_right = 380.0
+margin_bottom = 530.0
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+text = "Info text"
+
+[node name="Container" type="HBoxContainer" parent="Background/Container"]
+margin_top = 534.0
+margin_right = 380.0
+margin_bottom = 580.0
+
+[node name="Close" type="Button" parent="Background/Container/Container"]
+margin_right = 188.0
+margin_bottom = 46.0
+hint_tooltip = "Close this info box."
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource( 1 )
+text = "Close"
+
+[node name="Buy" type="Button" parent="Background/Container/Container"]
+margin_left = 192.0
+margin_right = 380.0
+margin_bottom = 46.0
+hint_tooltip = "Close this info box."
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource( 1 )
+text = "Buy"
+icon = ExtResource( 4 )
+expand_icon = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="pressed" from="Background/Container/Container/Close" to="." method="_on_Close_pressed"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

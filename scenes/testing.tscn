@@ -40,6 +40,8 @@ texture = ExtResource( 5 )
 
 [node name="Exibit2" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.380683, 0, -0.924706, 0, 1, 0, 0.924706, 0, -0.380683, 2.88643, 0, -5.25439 )
+title = "Laughing guy"
+info = "IDK. He speaks spanish lel"
 texture = ExtResource( 6 )
 
 [node name="Exibit3" parent="." instance=ExtResource( 3 )]

@@ -23,6 +23,9 @@ func _unhandled_input(event):
 			var pitch = clamp($Pivot/Camera.rotation[0] - event.relative.y * mouse_sensitivity, -PI * 179.0 / 360.0, PI * 179.0 / 360.0)
 			$Pivot.set_rotation(Vector3(0.0, yaw, 0.0))
 			$Pivot/Camera.set_rotation(Vector3(pitch, 0.0, 0.0))
+	elif event is InputEventMouseButton and Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		state_cam_enabled = true
 
 func get_input():
 	var direction = Vector3.ZERO
@@ -38,6 +41,9 @@ func get_input():
 		direction += view[0]
 	state_running = Input.is_action_pressed("player_action_run")
 	state_jumping = Input.is_action_pressed("player_move_jump")
+	if Input.is_action_pressed("ui_cancel"):
+		state_cam_enabled = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	return direction
 
@@ -57,16 +63,19 @@ func _physics_process(delta):
 		if state_jumping and is_on_floor():
 			velocity.y = speed_jump
 		velocity.y -= gravity * delta
-	
-	velocity = move_and_slide(velocity, Vector3.UP)
+		
+		velocity = move_and_slide(velocity, Vector3.UP)
 
-func _exibit_spectate(spectator):
+func _exibit_spectate(spectator, title, info):
 	state_enabled = false
 	state_cam_enabled = false
 	
 	var spec = spectator.get_node("Location")
 	var loc = spec.global_transform.origin
 	var rot = spec.global_transform.basis.get_euler()
+	
+	$ExibitInfo.info_show(title, info)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	var tween = $Tween
 	tween.interpolate_property(self, "translation", self.translation, loc, spectate_tween_time, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
@@ -75,5 +84,10 @@ func _exibit_spectate(spectator):
 	tween.start()
 
 func _on_Tween_tween_all_completed():
+	pass
+
+func _on_ExibitInfo_exited():
+	$ExibitInfo.info_hide()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	state_enabled = true
 	state_cam_enabled = true

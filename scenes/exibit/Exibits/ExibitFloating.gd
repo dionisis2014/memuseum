@@ -1,6 +1,9 @@
 extends Spatial
 
-signal _spectated(spectator)
+signal _spectated(spectator, title, info)
+
+export var title = "404"
+export var info = "Meme not found!"
 
 var matLightsOff = preload("res://assets/materials/ExibitBase001_LightOff_Material.tres")
 var matLightsOn = preload("res://assets/materials/ExibitBase001_LightOn_Material.tres")
@@ -27,7 +30,7 @@ func set_light(state):
 
 func _on_Spectator_body_entered(body):
 	if body.is_in_group("player"):
-		emit_signal("_spectated", $Spectator)
+		emit_signal("_spectated", $Spectator, title, info)
 		set_light(true)
 
 func _on_Spectator_body_exited(body):

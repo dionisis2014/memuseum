@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player/environment.tres" type="Environment" id=2]
+[ext_resource path="res://scenes/gui/exibit_info/ExibitInfo.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.4
@@ -35,4 +36,8 @@ current = true
 
 [node name="Tween" type="Tween" parent="."]
 
+[node name="ExibitInfo" parent="." instance=ExtResource( 3 )]
+visible = false
+
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="exited" from="ExibitInfo" to="." method="_on_ExibitInfo_exited"]
